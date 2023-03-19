@@ -1,0 +1,15 @@
+<h1>users list</h1>
+<ul>
+  <li *ngFor="let user of users">
+    <a href="#">{{ user.name }}</a>
+  </li>
+</ul>
+<mat-paginator
+  #paginator
+  [pageSizeOptions]="pageSizeOptions"
+  [pageIndex]="pageNumber - 1"
+  [pageSize]="perPage"
+  [length]="length"
+  (page)="handlePageEvent($event)"
+></mat-paginator>
+<div *ngIf="isFetching" class="loader"></div>
