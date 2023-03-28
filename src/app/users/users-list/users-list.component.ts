@@ -17,11 +17,13 @@ export class UsersListComponent implements OnInit {
   perPage = 10;
   pageSizeOptions = [5, 10, 25];
   isFetching = false;
+  searchTerm: string
 
   constructor(private usersService: UsersService) {}
   ngOnInit(): void {
     // fetching first users to display on initialization
     this.displayUsers(this.pageNumber, this.perPage);
+
   }
 
   // function to fetch users from API
@@ -40,5 +42,9 @@ export class UsersListComponent implements OnInit {
     this.perPage = event.pageSize;
     this.pageNumber = event.pageIndex + 1;
     this.displayUsers(this.pageNumber, this.perPage);
+  }
+
+  handleSearch(){
+alert("searching...")
   }
 }

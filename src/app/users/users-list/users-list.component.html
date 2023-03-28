@@ -1,4 +1,11 @@
 <h1>users list</h1>
+<form #searchForm="ngForm" (ngSubmit)="handleSearch()">
+  <mat-form-field>
+    <mat-label>Search user</mat-label>
+    <input matInput placeholder="Type here..." type="text" name="searchTerm" [(ngModel)]="searchTerm">
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">search</button>
+</form>
 <ul>
   <li *ngFor="let user of users">
     <a href="#">{{ user.name }}</a>
